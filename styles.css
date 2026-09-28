@@ -1,24 +1,25 @@
 /* ==========================================================================
    Mohami LaundryCo — Styles
-   Palette: white + deep teal, soft shadows, serif headings.
+   Palette: white + deep blue, soft shadows, serif headings.
    Mobile-first. No frameworks, no external font files.
    ========================================================================== */
 
 :root {
-  --brand: #0e6b63;
-  --brand-dark: #0a4f49;
-  --brand-darker: #073733;
-  --brand-soft: #e8f4f2;
-  --brand-line: #cfe5e2;
+  --brand: #1a5fc9;
+  --brand-dark: #14479b;
+  --brand-darker: #0e3272;
+  --brand-soft: #e9f0fb;
+  --brand-line: #cadcf5;
 
-  --ink: #14312f;
-  --body: #46595c;
-  --muted: #6b7d80;
+  --ink: #122a4a;
+  --body: #46586e;
+  --muted: #6b7c92;
 
   --surface: #ffffff;
-  --surface-alt: #f6f9f9;
-  --line: #e4ecec;
+  --surface-alt: #f6f9fd;
+  --line: #e3ebf7;
 
+  /* WhatsApp keeps its own green: that is the brand's colour, not ours. */
   --wa: #25d366;
   --wa-dark: #1eb455;
 
@@ -26,9 +27,9 @@
   --radius: 18px;
   --radius-lg: 28px;
 
-  --shadow-sm: 0 1px 2px rgba(10, 55, 51, 0.05);
-  --shadow: 0 8px 28px -10px rgba(10, 55, 51, 0.18);
-  --shadow-lg: 0 28px 64px -28px rgba(10, 55, 51, 0.32);
+  --shadow-sm: 0 1px 2px rgba(14, 50, 114, 0.05);
+  --shadow: 0 8px 28px -10px rgba(14, 50, 114, 0.18);
+  --shadow-lg: 0 28px 64px -28px rgba(14, 50, 114, 0.32);
 
   /* iOS / SF Pro system stack. Real SF Pro renders on Apple devices; elsewhere
      it falls through to the closest native system UI font, so the site looks
@@ -133,7 +134,7 @@ a {
 }
 
 .section--tint {
-  background: linear-gradient(180deg, var(--brand-soft) 0%, #f4fafa 100%);
+  background: linear-gradient(180deg, var(--brand-soft) 0%, #f4f8fd 100%);
 }
 
 .skip-link {
@@ -196,7 +197,7 @@ a {
 .btn--brand {
   background: var(--brand);
   color: #fff;
-  box-shadow: 0 10px 24px -12px rgba(14, 107, 99, 0.9);
+  box-shadow: 0 10px 24px -12px rgba(26, 95, 201, 0.9);
 }
 
 .btn--brand:hover {
@@ -399,7 +400,7 @@ a {
 .hero {
   position: relative;
   background-color: #ffffff;
-  background-image: linear-gradient(170deg, rgba(232, 244, 242, 0.95) 0%, rgba(255, 255, 255, 0.92) 62%),
+  background-image: linear-gradient(170deg, rgba(233, 240, 251, 0.95) 0%, rgba(255, 255, 255, 0.92) 62%),
     url("assets/pattern-bubbles.svg");
   background-size: auto, 220px 220px;
   background-repeat: no-repeat, repeat;
@@ -415,7 +416,7 @@ a {
   width: 460px;
   height: 460px;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(14, 107, 99, 0.12), transparent 68%);
+  background: radial-gradient(circle at 30% 30%, rgba(26, 95, 201, 0.12), transparent 68%);
   pointer-events: none;
 }
 
@@ -503,7 +504,7 @@ a {
   height: auto;
   max-width: 400px;
   margin-inline: auto;
-  filter: drop-shadow(0 24px 40px rgba(10, 55, 51, 0.14));
+  filter: drop-shadow(0 24px 40px rgba(14, 50, 114, 0.14));
 }
 
 /* The WhatsApp card peeking in behind the main illustration, so the hero
@@ -514,7 +515,7 @@ a {
   bottom: 4%;
   width: clamp(110px, 20%, 165px);
   height: auto;
-  filter: drop-shadow(0 14px 26px rgba(10, 55, 51, 0.2));
+  filter: drop-shadow(0 14px 26px rgba(14, 50, 114, 0.2));
   z-index: 1;
 }
 
@@ -523,7 +524,7 @@ a {
   height: auto;
   margin-top: 1.5rem;
   opacity: 0.95;
-  filter: drop-shadow(0 10px 20px rgba(10, 55, 51, 0.12));
+  filter: drop-shadow(0 10px 20px rgba(14, 50, 114, 0.12));
 }
 
 .hero__chips {
@@ -1334,7 +1335,7 @@ a {
 
 .cta {
   background-color: var(--brand-darker);
-  background-image: linear-gradient(160deg, rgba(14, 107, 99, 0.95) 0%, rgba(7, 55, 51, 0.97) 100%),
+  background-image: linear-gradient(160deg, rgba(26, 95, 201, 0.95) 0%, rgba(14, 50, 114, 0.97) 100%),
     url("assets/pattern-bubbles.svg");
   background-size: auto, 220px 220px;
   background-repeat: no-repeat, repeat;

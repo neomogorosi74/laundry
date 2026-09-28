@@ -2,19 +2,19 @@
   <defs>
     <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#ffffff"/>
-      <stop offset="1" stop-color="#f2f8f7"/>
+      <stop offset="1" stop-color="#f2f6fc"/>
     </linearGradient>
     <linearGradient id="towelA" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#14a094"/>
-      <stop offset="1" stop-color="#0e6b63"/>
+      <stop offset="0" stop-color="#2f7ce0"/>
+      <stop offset="1" stop-color="#1a5fc9"/>
     </linearGradient>
     <linearGradient id="towelB" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#ffffff"/>
-      <stop offset="1" stop-color="#dcece9"/>
+      <stop offset="1" stop-color="#dde8f9"/>
     </linearGradient>
     <linearGradient id="towelC" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#7cc6bd"/>
-      <stop offset="1" stop-color="#4a9d94"/>
+      <stop offset="0" stop-color="#7aa8e6"/>
+      <stop offset="1" stop-color="#4a7fc4"/>
     </linearGradient>
     <clipPath id="drumClip">
       <circle cx="228" cy="366" r="74"/>
@@ -22,9 +22,9 @@
   </defs>
 
   <!-- backdrop -->
-  <circle cx="318" cy="290" r="248" fill="#e8f4f2"/>
-  <circle cx="470" cy="150" r="104" fill="#d3e8e5"/>
-  <circle cx="150" cy="112" r="56" fill="#d3e8e5" opacity=".7"/>
+  <circle cx="318" cy="290" r="248" fill="#e9f0fb"/>
+  <circle cx="470" cy="150" r="104" fill="#d6e3f7"/>
+  <circle cx="150" cy="112" r="56" fill="#d6e3f7" opacity=".7"/>
 
   <!-- floating bubbles -->
   <g fill="#ffffff" opacity=".85">
@@ -34,7 +34,7 @@
     <circle cx="522" cy="290" r="12"/>
     <circle cx="104" cy="252" r="14"/>
   </g>
-  <g fill="none" stroke="#9ccfc9" stroke-width="3.5" stroke-linecap="round" opacity=".85">
+  <g fill="none" stroke="#a3c0ea" stroke-width="3.5" stroke-linecap="round" opacity=".85">
     <path d="M508 158c0-9 8-9 8-17s-8-8-8-15"/>
     <path d="M556 330c0-7 6-7 6-13s-6-6-6-12"/>
   </g>
@@ -42,31 +42,31 @@
   <!-- ================= WASHING MACHINE ================= -->
   <g>
     <!-- body -->
-    <rect x="92" y="196" width="272" height="308" rx="30" fill="url(#wash)" stroke="#0a4f49" stroke-width="6"/>
+    <rect x="92" y="196" width="272" height="308" rx="30" fill="url(#wash)" stroke="#14479b" stroke-width="6"/>
     <!-- control panel -->
-    <path d="M92 262h272" stroke="#0a4f49" stroke-width="5" stroke-linecap="round"/>
-    <circle cx="140" cy="229" r="19" fill="#0e6b63"/>
-    <circle cx="140" cy="229" r="7" fill="#e8f4f2"/>
-    <g fill="#0a4f49" opacity=".35">
+    <path d="M92 262h272" stroke="#14479b" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="140" cy="229" r="19" fill="#1a5fc9"/>
+    <circle cx="140" cy="229" r="7" fill="#e9f0fb"/>
+    <g fill="#14479b" opacity=".35">
       <circle cx="188" cy="229" r="6"/>
       <circle cx="212" cy="229" r="6"/>
       <circle cx="236" cy="229" r="6"/>
     </g>
-    <rect x="266" y="222" width="74" height="13" rx="6.5" fill="#cfe5e2"/>
+    <rect x="266" y="222" width="74" height="13" rx="6.5" fill="#cadcf5"/>
     <!-- door -->
-    <circle cx="228" cy="366" r="82" fill="#e8f4f2" stroke="#0a4f49" stroke-width="6"/>
-    <circle cx="228" cy="366" r="74" fill="#0e6b63" opacity=".14"/>
+    <circle cx="228" cy="366" r="82" fill="#e9f0fb" stroke="#14479b" stroke-width="6"/>
+    <circle cx="228" cy="366" r="74" fill="#1a5fc9" opacity=".14"/>
     <!-- clothes inside drum -->
     <g clip-path="url(#drumClip)">
       <path d="M158 400c22-40 46-52 70-52s48 12 70 52z" fill="url(#towelA)"/>
       <path d="M180 372c18-24 34-34 48-34s30 10 48 34z" fill="url(#towelC)"/>
       <rect x="196" y="300" width="64" height="34" rx="15" fill="url(#towelB)"/>
     </g>
-    <circle cx="228" cy="366" r="74" fill="none" stroke="#0a4f49" stroke-width="4" opacity=".35"/>
+    <circle cx="228" cy="366" r="74" fill="none" stroke="#14479b" stroke-width="4" opacity=".35"/>
     <!-- glass highlight -->
     <path d="M186 330a52 52 0 0 1 34-24" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" opacity=".75"/>
     <!-- steam -->
-    <g fill="none" stroke="#7cc6bd" stroke-width="5" stroke-linecap="round" opacity=".7">
+    <g fill="none" stroke="#7aa8e6" stroke-width="5" stroke-linecap="round" opacity=".7">
       <path d="M186 178c-8-10 8-16 0-27"/>
       <path d="M228 172c-8-10 8-16 0-27"/>
       <path d="M270 178c-8-10 8-16 0-27"/>
@@ -75,31 +75,31 @@
 
   <!-- ================= HANGING SHIRT ================= -->
   <g>
-    <path d="M430 96v34" stroke="#0a4f49" stroke-width="5" stroke-linecap="round"/>
-    <path d="M430 130l-30 20h60z" fill="none" stroke="#0a4f49" stroke-width="5" stroke-linejoin="round"/>
-    <path d="M400 150h60l34 30-20 24-14-12v72h-60v-72l-14 12-20-24z" fill="url(#towelA)" stroke="#0a4f49" stroke-width="5" stroke-linejoin="round"/>
-    <path d="M430 150v-20" stroke="#0a4f49" stroke-width="4" stroke-linecap="round"/>
+    <path d="M430 96v34" stroke="#14479b" stroke-width="5" stroke-linecap="round"/>
+    <path d="M430 130l-30 20h60z" fill="none" stroke="#14479b" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M400 150h60l34 30-20 24-14-12v72h-60v-72l-14 12-20-24z" fill="url(#towelA)" stroke="#14479b" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M430 150v-20" stroke="#14479b" stroke-width="4" stroke-linecap="round"/>
   </g>
 
   <!-- ================= BASKET OF FOLDED TOWELS ================= -->
   <g>
     <!-- basket -->
-    <path d="M398 372h196l-18 158a18 18 0 0 1-18 16H434a18 18 0 0 1-18-16z" fill="#0a4f49"/>
-    <g fill="#0a4f49" opacity=".55">
+    <path d="M398 372h196l-18 158a18 18 0 0 1-18 16H434a18 18 0 0 1-18-16z" fill="#14479b"/>
+    <g fill="#14479b" opacity=".55">
       <rect x="424" y="398" width="9" height="120" rx="4.5"/>
       <rect x="462" y="398" width="9" height="120" rx="4.5"/>
       <rect x="500" y="398" width="9" height="120" rx="4.5"/>
       <rect x="538" y="398" width="9" height="120" rx="4.5"/>
     </g>
-    <rect x="390" y="356" width="212" height="24" rx="12" fill="#073733"/>
+    <rect x="390" y="356" width="212" height="24" rx="12" fill="#0e3272"/>
     <!-- folded towels -->
-    <rect x="416" y="298" width="160" height="40" rx="14" fill="url(#towelC)" stroke="#0a4f49" stroke-width="5"/>
-    <rect x="428" y="262" width="136" height="38" rx="13" fill="url(#towelB)" stroke="#0a4f49" stroke-width="5"/>
-    <rect x="440" y="228" width="112" height="36" rx="12" fill="url(#towelA)" stroke="#0a4f49" stroke-width="5"/>
+    <rect x="416" y="298" width="160" height="40" rx="14" fill="url(#towelC)" stroke="#14479b" stroke-width="5"/>
+    <rect x="428" y="262" width="136" height="38" rx="13" fill="url(#towelB)" stroke="#14479b" stroke-width="5"/>
+    <rect x="440" y="228" width="112" height="36" rx="12" fill="url(#towelA)" stroke="#14479b" stroke-width="5"/>
   </g>
 
   <!-- ================= SPARKLES ================= -->
-  <g fill="#0e6b63" opacity=".9">
+  <g fill="#1a5fc9" opacity=".9">
     <path d="M96 404c0-6 4-6 4-12s-4-6-4-12c0 6-4 6-4 12s4 6 4 12z"/>
     <path d="M596 420c0-5 3.5-5 3.5-10s-3.5-5-3.5-10c0 5-3.5 5-3.5 10s3.5 5 3.5 10z"/>
   </g>

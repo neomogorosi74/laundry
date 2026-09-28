@@ -1,23 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" width="320" height="200" role="presentation" aria-hidden="true">
-  <g fill="none" stroke="#8fd0c8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+  <g fill="none" stroke="#93b4e8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
     <!-- delivery van -->
     <path d="M24 148V92a8 8 0 0 1 8-8h116a8 8 0 0 1 8 8v56"/>
     <path d="M156 108h44l30 30v10h-74z"/>
     <path d="M24 148h86"/>
-    <circle cx="70" cy="152" r="17" fill="#0a4f49"/>
-    <circle cx="70" cy="152" r="6" fill="#8fd0c8"/>
-    <circle cx="196" cy="152" r="17" fill="#0a4f49"/>
-    <circle cx="196" cy="152" r="6" fill="#8fd0c8"/>
+    <circle cx="70" cy="152" r="17" fill="#14479b"/>
+    <circle cx="70" cy="152" r="6" fill="#93b4e8"/>
+    <circle cx="196" cy="152" r="17" fill="#14479b"/>
+    <circle cx="196" cy="152" r="6" fill="#93b4e8"/>
     <!-- laundry bag in the back -->
     <path d="M48 84c0-12 10-20 22-20s22 8 22 20z"/>
     <path d="M64 60c0-6 3-10 6-10s6 4 6 10"/>
   </g>
   <!-- speed lines -->
-  <g fill="none" stroke="#8fd0c8" stroke-width="3.5" stroke-linecap="round" opacity=".6">
+  <g fill="none" stroke="#93b4e8" stroke-width="3.5" stroke-linecap="round" opacity=".6">
     <path d="M4 108H-8M4 122H-8M4 136H-8"/>
   </g>
   <!-- sparkles -->
-  <g fill="#8fd0c8">
+  <g fill="#93b4e8">
     <path d="M276 56c0-6 4-6 4-12s-4-6-4-12c0 6-4 6-4 12s4 6 4 12z"/>
     <path d="M244 30c0-4 3-4 3-8s-3-4-3-8c0 4-3 4-3 8s3 4 3 8z"/>
   </g>
