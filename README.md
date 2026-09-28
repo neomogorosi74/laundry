@@ -26,7 +26,7 @@ Open **`site-config.js`**. This is the only file you need for day-to-day changes
 
 | What | Where | Current value |
 |---|---|---|
-| WhatsApp number | `whatsapp` | `27679830755` |
+| WhatsApp number | `whatsapp` | `2783933553` |
 | How the number is displayed | `phoneDisplay` | `+27 83 933 553` |
 | Business name | `businessName` | `Mohami LaundryCo` |
 | Main suburb/city | `city` | `Pretoria` |

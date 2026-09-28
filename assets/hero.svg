@@ -1,61 +1,126 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 620" width="640" height="620" role="img" aria-label="A wash cycle finishing with shirts on hangers and a neatly folded stack">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 560" width="620" height="560" role="img" aria-label="A washing machine beside a neat stack of folded laundry and a draped towel">
   <defs>
-    <linearGradient id="lg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#1a5fc9"/>
-      <stop offset="1" stop-color="#0e3272"/>
+    <linearGradient id="hwBody" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.55" stop-color="#fbfdff"/>
+      <stop offset="1" stop-color="#eaf1fb"/>
     </linearGradient>
-    <linearGradient id="cloth" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f4f8fd"/>
-      <stop offset="1" stop-color="#dde8f9"/>
+    <linearGradient id="hwGlow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dbe8fa" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#eef4fd" stop-opacity="0"/>
     </linearGradient>
+    <linearGradient id="hwDrum" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#2b74dd"/>
+      <stop offset="1" stop-color="#123f8f"/>
+    </linearGradient>
+    <linearGradient id="hwClothA" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0" stop-color="#3d86e8"/>
+      <stop offset="1" stop-color="#1a5fc9"/>
+    </linearGradient>
+    <linearGradient id="hwClothB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#dce8f8"/>
+    </linearGradient>
+    <linearGradient id="hwClothC" x1="0" y1="0" x2="0.2" y2="1">
+      <stop offset="0" stop-color="#8fb6e9"/>
+      <stop offset="1" stop-color="#4d82c6"/>
+    </linearGradient>
+    <linearGradient id="hwDrape" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.5" stop-color="#e8f0fb"/>
+      <stop offset="1" stop-color="#c8daf3"/>
+    </linearGradient>
+    <radialGradient id="hwHalo" cx="0.5" cy="0.42" r="0.62">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".9"/>
+      <stop offset="0.55" stop-color="#eaf1fc" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#eaf1fc" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="hwDrumClip">
+      <circle cx="236" cy="342" r="72"/>
+    </clipPath>
+    <filter id="hwSoft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+    <filter id="hwLift" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#0e3272" flood-opacity="0.16"/>
+    </filter>
   </defs>
 
-  <!-- ground -->
-  <ellipse cx="300" cy="562" rx="250" ry="26" fill="#0e3272" opacity="0.08"/>
+  <!-- soft light, no hard-edged backdrop circle -->
+  <ellipse cx="300" cy="268" rx="290" ry="250" fill="url(#hwHalo)"/>
+  <ellipse cx="212" cy="516" rx="230" ry="26" fill="#123f8f" opacity="0.1" filter="url(#hwSoft)"/>
 
-  <!-- washing machine -->
-  <rect x="70" y="200" width="270" height="330" rx="26" fill="url(#lg)"/>
-  <rect x="70" y="200" width="270" height="330" rx="26" fill="none" stroke="#0e3272" stroke-width="3"/>
-  <rect x="96" y="228" width="180" height="56" rx="14" fill="#0e3272" opacity="0.32"/>
-  <circle cx="124" cy="256" r="11" fill="#7aa8e6"/>
-  <rect x="152" y="248" width="76" height="16" rx="8" fill="#a3c0ea" opacity="0.7"/>
-  <circle cx="205" cy="404" r="92" fill="#0e3272"/>
-  <circle cx="205" cy="404" r="74" fill="#dde8f9"/>
-  <g fill="none" stroke="#a3c0ea" stroke-width="4" stroke-linecap="round">
-    <path d="M158 372c22 8 44 8 66 0"/>
-    <path d="M162 398c20-8 40-8 60 0"/>
-    <path d="M170 424c18-6 36-6 54 0"/>
-  </g>
-  <circle cx="228" cy="342" r="7" fill="#ffffff" opacity="0.9"/>
-  <path d="M96 500h180" stroke="#7aa8e6" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+  <!-- ================= WASHING MACHINE ================= -->
+  <g filter="url(#hwLift)">
+    <rect x="88" y="170" width="268" height="316" rx="34" fill="url(#hwBody)"/>
+    <rect x="88" y="170" width="268" height="316" rx="34" fill="none" stroke="#cadcf5" stroke-width="2"/>
 
-  <!-- rail with hangers -->
-  <g stroke="#0e3272" stroke-width="3" stroke-linecap="round" fill="none">
-    <path d="M370 96h230"/>
-    <path d="M400 96v26M490 96v26M580 96v26"/>
-    <path d="M400 122l-20 14 12 8v96h30v-96l12-8z" fill="url(#cloth)"/>
-    <path d="M490 122l-20 14 12 8v96h30v-96l12-8z" fill="#cadcf5"/>
-    <path d="M580 122l-20 14 12 8v96h30v-96l12-8z" fill="#e9f0fb"/>
+    <rect x="112" y="196" width="220" height="56" rx="18" fill="#f4f8fe"/>
+    <circle cx="146" cy="224" r="17" fill="#eef4fd"/>
+    <circle cx="146" cy="224" r="10" fill="url(#hwDrum)"/>
+    <circle cx="143" cy="221" r="3.4" fill="#ffffff" opacity=".85"/>
+    <g fill="#9db8dc">
+      <rect x="180" y="219" width="26" height="10" rx="5"/>
+      <rect x="212" y="219" width="26" height="10" rx="5"/>
+    </g>
+    <rect x="256" y="215" width="62" height="18" rx="9" fill="#dbe8fa"/>
+    <rect x="262" y="221" width="30" height="6" rx="3" fill="#8fb6e9"/>
+
+    <!-- door -->
+    <circle cx="236" cy="342" r="86" fill="#f2f7fe"/>
+    <circle cx="236" cy="342" r="80" fill="url(#hwDrum)"/>
+    <g clip-path="url(#hwDrumClip)">
+      <path d="M150 392c26-46 52-60 80-60s54 14 80 60z" fill="url(#hwClothA)"/>
+      <path d="M176 366c20-28 40-38 56-38s36 10 56 38z" fill="url(#hwClothC)"/>
+      <rect x="204" y="272" width="64" height="34" rx="17" fill="url(#hwClothB)" opacity=".95"/>
+    </g>
+    <path d="M190 302a56 56 0 0 1 36-26" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity=".55"/>
+    <circle cx="236" cy="342" r="80" fill="none" stroke="#ffffff" stroke-width="3" opacity=".5"/>
+    <circle cx="236" cy="342" r="86" fill="none" stroke="#e2ebf8" stroke-width="2"/>
+
+    <!-- vent + feet -->
+    <g fill="#dbe8fa">
+      <rect x="118" y="452" width="34" height="7" rx="3.5"/>
+      <rect x="160" y="452" width="34" height="7" rx="3.5"/>
+      <rect x="202" y="452" width="34" height="7" rx="3.5"/>
+    </g>
   </g>
 
-  <!-- folded stack -->
-  <g stroke="#0e3272" stroke-width="3" stroke-linejoin="round">
-    <path d="M350 470h190v40H350z" fill="#a3c0ea"/>
-    <path d="M362 428h166v40H362z" fill="#cadcf5"/>
-    <path d="M374 390h142v36H374z" fill="#dde8f9"/>
-  </g>
-  <g fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round">
-    <path d="M396 408h26M430 408h30"/>
-    <path d="M388 448h22M418 448h22M448 448h26"/>
-    <path d="M380 490h24M412 490h24M444 490h24"/>
+  <!-- steam, soft -->
+  <g fill="none" stroke="#9dbfe8" stroke-width="5" stroke-linecap="round" opacity=".55">
+    <path d="M186 148c-9-11 9-18 0-30"/>
+    <path d="M236 140c-9-11 9-18 0-30"/>
+    <path d="M286 148c-9-11 9-18 0-30"/>
   </g>
 
-  <!-- zip detail -->
-  <g fill="none" stroke="#14479b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M556 250v250M578 250v250"/>
+  <!-- ================= DRAPED TOWEL ================= -->
+  <g>
+    <path d="M368 232c0-16 13-28 29-28h34c16 0 29 12 29 28v10c0 8-6 14-14 14h-64c-8 0-14-6-14-14z" fill="url(#hwClothA)"/>
+    <path d="M404 254h34c6 0 11 4 12 10l16 108c1 7-4 13-11 13h-92c-7 0-12-6-11-13l16-108c1-6 6-10 12-10z" fill="url(#hwDrape)"/>
+    <path d="M381 322c14 6 32 8 47 5 12-2 21-1 30 2" fill="none" stroke="#c3d8f2" stroke-width="3" stroke-linecap="round"/>
+    <path d="M377 356c16 7 36 9 52 5 12-3 21-1 31 2" fill="none" stroke="#c3d8f2" stroke-width="3" stroke-linecap="round"/>
+    <path d="M404 262c-4 34-6 70-4 108" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity=".8"/>
   </g>
-  <g fill="#1a5fc9">
-    <path d="M548 296h16v16h-16zM548 320h16v16h-16zM570 296h16v16h-16zM570 320h16v16h-16z"/>
-    <path d="M542 348h36l-4 10c-1.6 3.6-4.4 5.6-8 5.6h-12c-3.6 0-6.4-2-8-5.6z"/>
+
+  <!-- ================= NEAT STACK OF FOLDS ================= -->
+  <g filter="url(#hwLift)">
+    <rect x="392" y="418" width="196" height="52" rx="18" fill="url(#hwClothC)"/>
+    <rect x="392" y="418" width="196" height="52" rx="18" fill="none" stroke="#ffffff" stroke-width="2" opacity=".5"/>
+    <path d="M404 440c56 10 122 10 172 0" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+
+    <rect x="380" y="366" width="220" height="54" rx="18" fill="url(#hwClothB)"/>
+    <rect x="380" y="366" width="220" height="54" rx="18" fill="none" stroke="#e2ebf8" stroke-width="2"/>
+    <path d="M394 390c62 10 130 10 192 0" fill="none" stroke="#d3e2f6" stroke-width="3" stroke-linecap="round"/>
+
+    <rect x="396" y="314" width="188" height="54" rx="18" fill="url(#hwClothA)"/>
+    <rect x="396" y="314" width="188" height="54" rx="18" fill="none" stroke="#ffffff" stroke-width="2" opacity=".45"/>
+    <path d="M410 338c54 10 116 10 160 0" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+  </g>
+
+  <!-- a few quiet bubbles, no clutter -->
+  <g fill="#ffffff" opacity=".7">
+    <circle cx="512" cy="188" r="14"/>
+    <circle cx="546" cy="222" r="8"/>
+    <circle cx="96" cy="126" r="10"/>
   </g>
 </svg>

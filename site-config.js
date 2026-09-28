@@ -11,7 +11,7 @@ window.SITE_CONFIG = {
 
   // South Africa WhatsApp number in INTERNATIONAL format:
   //   country code 27, then the number WITHOUT the leading 0 and no "+".
-  //   083 933 553  ->  "2783933553"
+  //   083 933 553   ->  "2783933553"
   whatsapp: "2783933553",
 
   // How the number is displayed on the page

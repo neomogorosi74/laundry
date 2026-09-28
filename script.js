@@ -439,6 +439,82 @@
     });
   }
 
+  // The free-collection offer lives in a bar at the foot of the page, so it
+  // never crowds the header. It slides up once the hero is behind you and it
+  // stays gone for good if the visitor dismisses it. A cookie is used so the
+  // choice survives page loads; everything degrades quietly where storage is
+  // unavailable (private browsing, storage disabled).
+  var PROMO_KEY = "mlc-promo-dismissed";
+
+  function promoDismissed() {
+    try {
+      return localStorage.getItem(PROMO_KEY) === "1";
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function initPromo() {
+    var promo = document.getElementById("promo");
+    var close = document.getElementById("promo-close");
+    var hero = document.querySelector(".hero");
+    if (!promo || !close || promoDismissed()) return;
+
+    // The bar is animated with transform + opacity rather than the `hidden`
+    // attribute, so the transition has something to interpolate from and the
+    // reveal does not depend on a layout frame being painted first.
+    function measure() {
+      // The page pads itself by the real height of the bar, so the last line
+      // is never hidden on any screen size or with any translated text. The
+      // value goes on the root element so both the body padding and the
+      // floating WhatsApp button can read it.
+      document.documentElement.style.setProperty("--promo-h", promo.offsetHeight + "px");
+    }
+
+    function show() {
+      measure();
+      promo.classList.add("is-visible");
+      promo.removeAttribute("aria-hidden");
+      promo.removeAttribute("inert");
+      document.body.classList.add("promo-open");
+    }
+
+    function hide(remember) {
+      promo.classList.remove("is-visible");
+      promo.setAttribute("aria-hidden", "true");
+      promo.setAttribute("inert", "");
+      document.body.classList.remove("promo-open");
+      if (remember) {
+        try {
+          localStorage.setItem(PROMO_KEY, "1");
+        } catch (e) {
+          /* nothing to do, the bar simply returns next visit */
+        }
+      }
+    }
+
+    close.addEventListener("click", function () {
+      hide(true);
+    });
+
+    window.addEventListener("resize", function () {
+      if (promo.classList.contains("is-visible")) show();
+    });
+
+    // Only surface it after the hero has been scrolled past, so the offer
+    // arrives as a follow-up rather than competing with the headline.
+    if (hero && "IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) hide(false);
+          else show();
+        });
+      }, { threshold: 0 }).observe(hero);
+    } else {
+      show();
+    }
+  }
+
   function init() {
     hydrateText();
     hydratePrices();
@@ -449,6 +525,7 @@
     initMobileMenu();
     initFaq();
     initReveal();
+    initPromo();
   }
 
   if (document.readyState === "loading") {
