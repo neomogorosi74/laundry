@@ -11,11 +11,11 @@ window.SITE_CONFIG = {
 
   // South Africa WhatsApp number in INTERNATIONAL format:
   //   country code 27, then the number WITHOUT the leading 0 and no "+".
-  //   067 983 0755  ->  "27679830755"
-  whatsapp: "27679830755",
+  //   083 933 553  ->  "2783933553"
+  whatsapp: "2783933553",
 
   // How the number is displayed on the page
-  phoneDisplay: "067 983 0755",
+  phoneDisplay: "+27 83 933 553",
 
   /* --- PRICES (all in Rand) --------------------------------------------- */
   // THE ONLY PLACE PRICES LIVE. Change a number here and every price on the

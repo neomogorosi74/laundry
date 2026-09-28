@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Iron on a press cloth">
+  <g fill="none" stroke="#14479b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 92h92"/>
+    <path d="M22 78c0-4 3-7 7-7h30l10-22c2-4 6-6 10-6h14c4 0 6 3 4 6l-14 22c-2 4-6 7-11 7H22z"/>
+    <path d="M59 71 52 84h16"/>
+  </g>
+  <g fill="none" stroke="#1a5fc9" stroke-width="2.4" stroke-linecap="round">
+    <path d="M44 50c8-4 16-4 24 0"/>
+    <path d="M48 60c8-4 16-4 24 0"/>
+  </g>
+  <g fill="none" stroke="#a3c0ea" stroke-width="2.2" stroke-linecap="round">
+    <path d="M36 100c8-4 16-4 24 0s16 4 24 0"/>
+  </g>
+  <circle cx="94" cy="26" r="4" fill="#1a5fc9"/>
+</svg>

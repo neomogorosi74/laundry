@@ -27,7 +27,7 @@ Open **`site-config.js`**. This is the only file you need for day-to-day changes
 | What | Where | Current value |
 |---|---|---|
 | WhatsApp number | `whatsapp` | `27679830755` |
-| How the number is displayed | `phoneDisplay` | `067 983 0755` |
+| How the number is displayed | `phoneDisplay` | `+27 83 933 553` |
 | Business name | `businessName` | `Mohami LaundryCo` |
 | Main suburb/city | `city` | `Pretoria` |
 | Suburbs you cover | `areas` | Brooklyn, Hatfield, Menlo Park… |
@@ -45,7 +45,7 @@ Open **`site-config.js`**. This is the only file you need for day-to-day changes
 
 | Your number | Value to use |
 |---|---|
-| 067 983 0755 | `"27679830755"` |
+| +27 83 933 553 | `"2783933553"` |
 | 082 123 4567 | `"27821234567"` |
 
 Save the file, refresh the page, and every button on the site now uses the new number.
