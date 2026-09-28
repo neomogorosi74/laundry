@@ -19,8 +19,8 @@ window.SITE_CONFIG = {
 
   /* --- WHERE YOU WORK (important for Google "near me" searches) -------- */
   // Set ONE main suburb/city, then list the surrounding areas you cover.
-  // Example: city: "Soweto", areas: ["Pimville", "Jabulani", "Dobsonville"]
-  city: "Randburg",
+  // Example: city: "Pretoria", areas: ["Brooklyn", "Hatfield", "Mamelodi"]
+  city: "Pretoria",
   province: "Gauteng",
   country: "South Africa",
   countryCode: "ZA",
@@ -28,21 +28,28 @@ window.SITE_CONFIG = {
   // The main address Google will show. Use a real, mappable address or a
   // service-area business address (no shopfront) — do NOT invent one.
   street: "Set your street address here",
-  postalCode: "0000",
+  postalCode: "0001",
 
   // Nearby suburbs / areas you collect from and deliver to.
+  // REPLACE THESE with the areas you actually service. Ranking for a suburb
+  // you don't cover wastes your time and upsets real customers.
   areas: [
-    "Randburg",
-    "Sandsfontein",
-    "Ferndale",
-    "Northcliff",
-    "Brixton",
-    "Robindale",
-    "Fontainebleau",
+    "Pretoria",
+    "Brooklyn",
+    "Hatfield",
+    "Menlo Park",
+    "Waterkloof",
+    "Lynnwood",
+    "Menlyn",
+    "Silverton",
+    "Montana",
+    "Centurion",
+    "Mamelodi",
+    "Soshanguve",
   ],
 
   // Extra free-text keyword areas for the page copy + meta tags
-  serviceAreaKeywords: "Randburg, Sandton, Fourways, Roodepoort, Soweto",
+  serviceAreaKeywords: "Pretoria, Centurion, Menlyn, Brooklyn, Soshanguve",
 
   /* --- HOURS (24h format, Google Search Console format) ----------------- */
   hours: [
