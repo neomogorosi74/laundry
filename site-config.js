@@ -6,8 +6,8 @@
 window.SITE_CONFIG = {
 
   /* --- WHO YOU ARE ---------------------------------------------------- */
-  businessName: "Mohami's Laundry",
-  legalName: "Mohami's Laundry",
+  businessName: "Mohami LaundryCo",
+  legalName: "Mohami LaundryCo",
 
   // South Africa WhatsApp number in INTERNATIONAL format:
   //   country code 27, then the number WITHOUT the leading 0 and no "+".

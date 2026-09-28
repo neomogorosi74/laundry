@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Mohami's Laundry — page behaviour
+   Mohami LaundryCo — page behaviour
    1. Config plumbing (single source of truth)
    2. Build + inject all WhatsApp links
    3. Fill config-driven text (name, phone, hours, areas)

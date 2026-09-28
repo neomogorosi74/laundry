@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" fill="none" role="img" aria-label="Illustration of a folded laundry pile on a washing machine with a hanging shirt and an iron">
+  <defs>
+    <linearGradient id="wdf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0e6b63"/>
+      <stop offset="1" stop-color="#0a4f49"/>
+    </linearGradient>
+    <linearGradient id="wdl" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e8f4f2"/>
+    </linearGradient>
+    <linearGradient id="wds" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7ecfc4"/>
+      <stop offset="1" stop-color="#4fb3a6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- floor shadow -->
+  <ellipse cx="100" cy="138" rx="72" ry="8" fill="#0e6b63" opacity=".10"/>
+
+  <!-- hanging shirt on a rail -->
+  <path d="M146 22h30" stroke="#0a4f49" stroke-width="3" stroke-linecap="round" opacity=".35"/>
+  <path d="M161 22v8" stroke="#0a4f49" stroke-width="2.5" stroke-linecap="round" opacity=".35"/>
+  <path d="M148 30h26l4 7-4 3v22c0 2-1.6 3.6-3.6 3.6h-18.8C149.6 65.6 148 64 148 62V40l-4-3z" fill="url(#wds)"/>
+  <path d="M158.5 33.5l3.5 4.5 3.5-4.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/>
+
+  <!-- washing machine body -->
+  <rect x="26" y="52" width="96" height="80" rx="10" fill="url(#wdl)" stroke="#0e6b63" stroke-width="2.5"/>
+  <!-- control panel -->
+  <rect x="34" y="60" width="80" height="16" rx="5" fill="#0e6b63" opacity=".10"/>
+  <circle cx="44" cy="68" r="4.5" fill="#0e6b63"/>
+  <circle cx="58" cy="68" r="4.5" fill="#4fb3a6"/>
+  <rect x="70" y="64" width="26" height="8" rx="4" fill="#0e6b63" opacity=".45"/>
+  <circle cx="106" cy="68" r="5.5" fill="#0e6b63" opacity=".35"/>
+  <!-- porthole -->
+  <circle cx="74" cy="104" r="25" fill="#e8f4f2" stroke="#0e6b63" stroke-width="2.5"/>
+  <circle cx="74" cy="104" r="17" fill="url(#wds)" opacity=".55"/>
+  <!-- suds -->
+  <circle cx="62" cy="98" r="6" fill="#ffffff" opacity=".8"/>
+  <circle cx="82" cy="94" r="4.5" fill="#ffffff" opacity=".7"/>
+  <circle cx="86" cy="108" r="5" fill="#ffffff" opacity=".65"/>
+  <!-- shine -->
+  <path d="M60 88a18 18 0 0 1 9-8" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity=".75"/>
+
+  <!-- folded stack -->
+  <rect x="120" y="98" width="62" height="12" rx="5" fill="#0e6b63"/>
+  <rect x="124" y="86" width="58" height="12" rx="5" fill="#4fb3a6"/>
+  <rect x="128" y="74" width="54" height="12" rx="5" fill="#7ecfc4"/>
+  <path d="M136 90h14M140 102h12M144 80h10" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity=".65"/>
+
+  <!-- iron -->
+  <path d="M136 46c14 0 24 7 26 18h-30c-2 0-3-1.4-3-3.1 0-2.6 1-5.5 2.6-8.4 1.4-2.5 2.8-4.2 4.4-6.5z" fill="url(#wdf)"/>
+  <path d="M132 56h26" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity=".5"/>
+  <path d="M134 64h6" stroke="#0a4f49" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+  <!-- steam -->
+  <path d="M140 38c0-4 4-4 4-8s-4-4-4-8" stroke="#4fb3a6" stroke-width="2.2" stroke-linecap="round" opacity=".7"/>
+  <path d="M152 36c0-3 3-3 3-6" stroke="#7ecfc4" stroke-width="2" stroke-linecap="round" opacity=".6"/>
+</svg>

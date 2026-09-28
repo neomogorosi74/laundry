@@ -1,4 +1,4 @@
-# Mohami's Laundry — website
+# Mohami LaundryCo — website
 
 A single-page website for a laundry business. Every "book" button opens WhatsApp with a
 pre-filled message, so a customer can go from landing on the page to booking in about 15
@@ -28,7 +28,7 @@ Open **`site-config.js`**. This is the only file you need for day-to-day changes
 |---|---|---|
 | WhatsApp number | `whatsapp` | `27679830755` |
 | How the number is displayed | `phoneDisplay` | `067 983 0755` |
-| Business name | `businessName` | `Mohami's Laundry` |
+| Business name | `businessName` | `Mohami LaundryCo` |
 | Main suburb/city | `city` | `Pretoria` |
 | Suburbs you cover | `areas` | Brooklyn, Hatfield, Menlo Park… |
 | Suburbs in the SEO text | `serviceAreaKeywords` | Pretoria, Hatfield, Menlyn… |
@@ -213,7 +213,7 @@ This is the listing that appears on Google Maps when someone searches *laundry n
 It is free and it is what actually brings in customers.
 
 1. Go to <https://www.google.com/business/> and sign in with a Google account.
-2. Click **Add your business**. Enter `Mohami's Laundry`.
+2. Click **Add your business**. Enter `Mohami LaundryCo`.
 3. Choose **Service-area business** (no shopfront) if you have no walk-in address.
 4. Category: **Laundry service** (also add *Ironing service*).
 5. Add your **real address or service area** — the suburbs you actually cover.

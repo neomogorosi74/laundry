@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Mohami's Laundry — Styles
+   Mohami LaundryCo — Styles
    Palette: white + deep teal, soft shadows, serif headings.
    Mobile-first. No frameworks, no external font files.
    ========================================================================== */
@@ -57,7 +57,7 @@ html {
 body {
   margin: 0;
   font-family: var(--font-sans);
-  font-size: 1.0625rem;
+  font-size: 0.975rem;
   line-height: 1.55;
   color: var(--body);
   background: var(--surface);
@@ -88,15 +88,15 @@ h4 {
 }
 
 h1 {
-  font-size: clamp(2.25rem, 6.2vw, 4rem);
+  font-size: clamp(1.85rem, 4.4vw, 2.9rem);
   letter-spacing: -0.03em;
 }
 h2 {
-  font-size: clamp(1.8rem, 4.2vw, 2.65rem);
+  font-size: clamp(1.45rem, 2.9vw, 1.9rem);
   letter-spacing: -0.026em;
 }
 h3 {
-  font-size: 1.22rem;
+  font-size: 1.06rem;
   letter-spacing: -0.016em;
   font-weight: 600;
 }
@@ -222,7 +222,7 @@ a {
 
 .btn--lg {
   padding: 1.05rem 2rem;
-  font-size: 1.075rem;
+  font-size: 0.975rem;
 }
 
 .btn .icon {
@@ -293,7 +293,7 @@ a {
 .brand__name {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.075rem;
+  font-size: 0.975rem;
   color: var(--brand-darker);
 }
 
@@ -461,7 +461,7 @@ a {
 }
 
 .hero__lead {
-  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+  font-size: clamp(0.95rem, 1.5vw, 1.02rem);
   max-width: 46ch;
   color: var(--body);
 }
@@ -501,16 +501,91 @@ a {
 .hero__art {
   width: 100%;
   height: auto;
-  max-width: 460px;
+  max-width: 400px;
   margin-inline: auto;
   filter: drop-shadow(0 24px 40px rgba(10, 55, 51, 0.14));
 }
 
+/* The WhatsApp card peeking in behind the main illustration, so the hero
+   reads as a conversation rather than one lonely picture. */
+.hero__art-quote {
+  position: absolute;
+  right: 0;
+  bottom: 4%;
+  width: clamp(110px, 20%, 165px);
+  height: auto;
+  filter: drop-shadow(0 14px 26px rgba(10, 55, 51, 0.2));
+  z-index: 1;
+}
+
+.hero__art-sm {
+  width: clamp(120px, 100%, 168px);
+  height: auto;
+  margin-top: 1.5rem;
+  opacity: 0.95;
+  filter: drop-shadow(0 10px 20px rgba(10, 55, 51, 0.12));
+}
+
+.hero__chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+}
+
+.hero__chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--brand-darker);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.34rem 0.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.hero__chips li span {
+  font-weight: 700;
+}
+
 .coverage__art {
-  width: min(100%, 300px);
-  margin-top: 1.75rem;
+  width: min(100%, 260px);
+  margin-top: 1.5rem;
   margin-inline: auto;
   opacity: 0.95;
+}
+
+.coverage__art-stack {
+  width: min(100%, 210px);
+  margin: 0.75rem auto -0.5rem;
+  display: block;
+  opacity: 0.9;
+}
+
+.step__art {
+  width: min(100%, 150px);
+  height: auto;
+  margin-top: 1rem;
+  margin-inline: auto;
+  opacity: 0.92;
+}
+
+.quote--empty {
+  text-align: center;
+  max-width: 46ch;
+  margin-inline: auto;
+  border-style: dashed;
+}
+
+.quote__waiting {
+  font-weight: 600;
+  color: var(--brand-darker);
+  margin-bottom: 0.5rem;
 }
 
 /* The bubble texture is applied inside the .hero and .cta background stacks
@@ -671,7 +746,7 @@ a {
 }
 
 .lede {
-  font-size: 1.075rem;
+  font-size: 0.975rem;
   color: var(--body);
 }
 
@@ -1067,6 +1142,8 @@ a {
 .quotes {
   display: grid;
   gap: 1.15rem;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
 }
 
 .quote {
