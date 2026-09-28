@@ -58,7 +58,7 @@ window.SITE_CONFIG = {
 
   /* --- SOCIAL / CONTACT ------------------------------------------------- */
   email: "youremail@example.com", // optional, leave "" to hide
-  instagram: "", // e.g. "mohamislaundry" — leave "" to hide
+  instagram: "", // e.g. "mohamis.laundry" — leave "" to hide
   facebook: "",
 
   /* --- WHATSAPP MESSAGE TEMPLATES -------------------------------------- */
@@ -88,5 +88,5 @@ window.SITE_CONFIG = {
 
   // Your live address, e.g. "https://yourname.github.io/laundry/".
   // Used by sitemap.xml instructions, canonical tags and social previews.
-  siteUrl: "https://mohamislaundry.github.io/laundry/",
+  siteUrl: "https://neomogorosi74.github.io/laundry/",
 };
