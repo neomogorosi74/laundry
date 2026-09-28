@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://neomogorosi74.github.io/laundry/sitemap.xml
+Sitemap: https://mohamislaundry.netlify.app/sitemap.xml

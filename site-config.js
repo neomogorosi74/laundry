@@ -93,7 +93,7 @@ window.SITE_CONFIG = {
   // Paste your Bing verification code here, e.g. "1234567890abcdef".
   bingVerification: "",
 
-  // Your live address, e.g. "https://yourname.github.io/laundry/".
+  // Your live address, e.g. "https://mohamislaundry.netlify.app".
   // Used by sitemap.xml instructions, canonical tags and social previews.
-  siteUrl: "https://neomogorosi74.github.io/laundry/",
+  siteUrl: "https://mohamislaundry.netlify.app",
 };
