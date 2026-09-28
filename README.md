@@ -55,62 +55,69 @@ section are two separate places — update both so they match.
 
 ---
 
-## 2. Publish it free (GitHub Pages)
+## 2. Publish it free (Netlify)
 
-Free hosting, free address (`yourname.github.io/laundry`), free HTTPS. No card needed.
+Live address: **`https://mohamislaundry.netlify.app`** — free hosting, free HTTPS, no card.
 
-**One-time setup**
-
-1. Go to <https://github.com> and create a free account.
-2. On GitHub click **+** (top right) → **New repository**.
-   - Name: `laundry`
-   - **Public** ← must be public, free GitHub Pages only works on public repos
-   - Do *not* tick "Add a README"
-3. Click **Create repository**.
-
-**Send your website to GitHub**
-
-In this folder, open PowerShell and run (replace `YOUR-USERNAME`):
+Netlify is connected to the GitHub repo, so **every `git push` publishes the site
+automatically.** This is the only update cycle you need:
 
 ```powershell
-git remote add origin https://github.com/YOUR-USERNAME/laundry.git
-git branch -M main
-git push -u origin main
-```
-
-**Turn on the website**
-
-4. In the repo go to **Settings** → **Pages** (left sidebar).
-5. Under *Build and deployment* choose **Deploy from a branch**.
-6. Branch: **main**, folder: **/ (root)** → **Save**.
-7. Wait 1–2 minutes. Your site is live at:
-   **`https://YOUR-USERNAME.github.io/laundry/`**
-
-**Every later change:** edit the file, then push.
-
-```powershell
+cd C:\Users\Dell\laundry
 git add .
-git commit -m "update prices"
+git commit -m "changed prices"
 git push
 ```
 
-That is the whole update cycle. Your site updates within a minute or two.
+The site updates in about a minute. Nothing to click, nothing to remember.
 
-### Important: update the URL in two files
+<details>
+<summary>How the Netlify connection was set up (only needed if you ever have to redo it)</summary>
 
-Once live, put your real address into `site-config.js`:
+1. <https://app.netlify.com> → **Add new site** → **Import an existing project** → **GitHub**
+2. Authorise GitHub and pick the `laundry` repository
+3. Deploy settings — **Branch** `main`, **Build command** leave *empty*, **Publish directory** `/`
+4. **Deploy site**
+5. **Site configuration** → **Access & security** → **Visitor access control** →
+   set to **Allow all visitors** (if this is left on, visitors get a login page instead of
+   your website)
 
-```js
-siteUrl: "https://YOUR-USERNAME.github.io/laundry/",
+</details>
+
+<details>
+<summary>Fallback: deploy by dragging the folder (no GitHub link)</summary>
+
+Go to <https://app.netlify.com/drop> and drag this folder onto the page:
+
+```
+C:\Users\Dell\laundry
 ```
 
-Then in `index.html` find and replace these three places:
+This publishes whatever is in the folder *at that moment*. Files you change later on your
+computer will **not** go live until you drag again — which is why the GitHub link above is
+better.
 
-- `<link rel="canonical" href="...">`
-- `og:url` and `og:image` and `twitter:image`
-- the `geo.placename` value
+</details>
 
-Also update `sitemap.xml` and `robots.txt` with the same address.
+### The website is also on GitHub Pages — turn that off
+
+An earlier version was published to `https://neomogorosi74.github.io/laundry/`. Two live
+copies of the same page confuse Google about which one is the real site, and your SEO
+efforts get split between them. Turn the old one off:
+
+<https://github.com/neomogorosi74/laundry/settings/pages> → under *GitHub Pages*,
+set **Source** to **None** → **Save**.
+
+### If you ever move to a different address
+
+The site tells Google its official address in several places. If the URL ever changes, all
+of these must change together or Google will index the wrong page:
+
+- `<link rel="canonical">` in `index.html`
+- `og:url`, `og:image` and `twitter:image` in `index.html`
+- the `Sitemap:` line in `robots.txt`
+- `<loc>` in `sitemap.xml`
+- `siteUrl` in `site-config.js`
 
 ---
 
@@ -148,7 +155,7 @@ ranking factor for a local service business.
 ### Step 2 — Get the site indexed by Google
 
 1. Go to <https://search.google.com/search-console>
-2. Add **URL prefix** → type your full address `https://YOUR-USERNAME.github.io/laundry/`
+2. Add **URL prefix** → type your full address `https://mohamislaundry.netlify.app`
 3. Google gives you a verification code. Copy it.
 4. Open `site-config.js`, find `googleVerification: ""` and paste the code between the
    quotes. Push the change.
