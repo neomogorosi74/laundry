@@ -67,6 +67,12 @@
     if (C.province) setText("[data-bind=\"province\"]", C.province);
     if (C.postalCode) setText("[data-bind=\"postal\"]", C.postalCode);
     if (C.email) setText("[data-bind=\"email\"]", C.email);
+    if (C.specialTreatmentNote) {
+      setText("[data-bind=\"specialTreatmentNote\"]", C.specialTreatmentNote);
+    }
+    // Street is optional. With no street set we show a sensible
+    // "service-area business" line instead of a blank or a placeholder.
+    setText("[data-bind=\"addressLine\"]", C.street || C.addressFallback || "");
     if (C.serviceAreaKeywords) {
       setText("[data-bind=\"areaKeywords\"]", C.serviceAreaKeywords);
     }
@@ -133,6 +139,66 @@
     document.getElementById("year").textContent = new Date().getFullYear();
   }
 
+  /* ---------------------------------------------------------------- 1b. prices */
+
+  // Every price on the page is driven from site-config.js -> prices{}.
+  // Change a number there and the service cards, the pricing table, the FAQ
+  // answer and the Google OfferCatalog schema all update together.
+  function formatPrice(value) {
+    if (value === undefined || value === null || value === "") return "";
+    if (typeof value === "string") return value; // allows "Free", "POA" etc.
+    var n = Number(value);
+    if (isNaN(n)) return String(value);
+    return (
+      "R" +
+      n.toLocaleString("en-ZA", {
+        minimumFractionDigits: n % 1 === 0 ? 0 : 2,
+        maximumFractionDigits: 2,
+      })
+    );
+  }
+
+  function priceString(key) {
+    var p = (C.prices || {})[key];
+    if (p === undefined) return "";
+    return formatPrice(p);
+  }
+
+  // For values that are NOT money — minimum load weight, turnaround days, etc.
+  // Rendered verbatim so "3kg" never becomes "R3kg".
+  function rawString(key) {
+    var p = (C.prices || {})[key];
+    return p === undefined || p === null ? "" : String(p);
+  }
+
+  function hydratePrices() {
+    // Visible price labels
+    document.querySelectorAll("[data-price]").forEach(function (el) {
+      var key = el.getAttribute("data-price");
+      var text = priceString(key);
+      if (!text) return;
+      el.textContent = (el.getAttribute("data-prefix") || "") + text;
+    });
+
+    // Non-monetary values (kg minimums, turnaround times)
+    document.querySelectorAll("[data-raw]").forEach(function (el) {
+      var text = rawString(el.getAttribute("data-raw"));
+      if (text) el.textContent = text;
+    });
+
+    // Feed the schema builder. We write back a data-service-price attribute so
+    // buildCatalog() stays a pure read of the DOM.
+    document.querySelectorAll("[data-price-key]").forEach(function (el) {
+      var text = priceString(el.getAttribute("data-price-key"));
+      if (!text) return;
+      var label =
+        (el.getAttribute("data-price-prefix") || "") +
+        text +
+        (el.getAttribute("data-price-unit") || "");
+      el.setAttribute("data-service-price", label);
+    });
+  }
+
   /* ------------------------------------------------- 3. structured data (SEO) */
 
   // Google uses this to build the "laundry near me" knowledge panel results.
@@ -170,20 +236,27 @@
   }
 
   function buildHours() {
-    return (C.hours || []).map(function (h) {
-      return {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: h.days.map(function (d) {
-          return "https://schema.org/" + d;
-        }),
-        opens: h.open,
-        closes: h.close,
-      };
-    });
+    return (C.hours || [])
+      // A "closed" day must be omitted entirely. Emitting opens:"closed" is
+      // invalid schema and Google discards the whole openingHours block.
+      .filter(function (h) {
+        return h && h.open && h.close && h.open !== "closed";
+      })
+      .map(function (h) {
+        return {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: h.days.map(function (d) {
+            return "https://schema.org/" + d;
+          }),
+          opens: h.open,
+          closes: h.close,
+        };
+      });
   }
 
   // Services + prices appear as rich results / price snippets.
   function buildCatalog() {
+    var prices = C.prices || {};
     var svc = [];
     document.querySelectorAll("[data-service]").forEach(function (el) {
       var item = {
@@ -191,14 +264,21 @@
         name: el.getAttribute("data-service"),
         description: el.getAttribute("data-service-desc") || undefined,
       };
-      var price = el.getAttribute("data-service-price");
-      if (price) {
-        var num = price.replace(/[^0-9.]/g, "");
-        if (num) {
-          item.price = num;
-          item.priceCurrency = "ZAR";
-        }
+
+      // Price comes from config.prices via data-price-key, so editing one
+      // number in site-config.js updates the schema too. Only numeric
+      // values become prices; a text value like "Free" is left out, which is
+      // correct — a free offer has no numeric price.
+      var key = el.getAttribute("data-price-key");
+      var raw = key ? prices[key] : undefined;
+      var num = typeof raw === "number" ? String(raw) : parseFloat(raw);
+      if (raw !== undefined && raw !== "" && !isNaN(num) && isFinite(num)) {
+        item.price = String(num);
+        item.priceCurrency = "ZAR";
+        var unit = el.getAttribute("data-price-unit");
+        if (unit) item.unitText = unit;
       }
+
       svc.push(item);
     });
     return {
@@ -341,9 +421,29 @@
 
   /* ------------------------------------------------------------------- 5. init */
 
+  // Search-console verification codes live in site-config.js, so the owner
+  // never has to touch index.html. Empty values insert nothing.
+  function hydrateVerification() {
+    [
+      ["google-site-verification", C.googleVerification],
+      ["msvalidate.01", C.bingVerification],
+    ].forEach(function (pair) {
+      var name = pair[0];
+      var value = pair[1];
+      if (!value) return;
+      if (document.querySelector('meta[name="' + name + '"]')) return;
+      var meta = document.createElement("meta");
+      meta.setAttribute("name", name);
+      meta.setAttribute("content", value);
+      document.head.appendChild(meta);
+    });
+  }
+
   function init() {
     hydrateText();
+    hydratePrices();
     hydrateWhatsApp();
+    hydrateVerification();
     injectSchema();
     initHeader();
     initMobileMenu();

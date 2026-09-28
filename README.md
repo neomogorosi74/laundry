@@ -29,13 +29,16 @@ Open **`site-config.js`**. This is the only file you need for day-to-day changes
 | WhatsApp number | `whatsapp` | `27679830755` |
 | How the number is displayed | `phoneDisplay` | `067 983 0755` |
 | Business name | `businessName` | `Mohami's Laundry` |
-| Main suburb/city | `city` | `Randburg` |
-| Suburbs you cover | `areas` | Randburg, Ferndale, … |
-| Suburbs in the SEO text | `serviceAreaKeywords` | Randburg, Sandton, Fourways… |
-| Street address | `street` | *placeholder — set your real one* |
-| Opening hours | `hours` + `hoursText` | Mon–Fri 07:00–18:00 … |
+| Main suburb/city | `city` | `Pretoria` |
+| Suburbs you cover | `areas` | Brooklyn, Hatfield, Menlo Park… |
+| Suburbs in the SEO text | `serviceAreaKeywords` | Pretoria, Hatfield, Menlyn… |
+| Street address | `street` | *empty — service-area business* |
+| Fallback address line | `addressFallback` | shown when `street` is empty |
+| Prices | `prices` | see below |
+| Opening hours | `hours` + `hoursText` | 06:30–10:00 and 17:00–20:00, daily |
 | Email | `email` | your email |
 | Instagram / Facebook | `instagram`, `facebook` | empty = hidden |
+| Google/Bing verification code | `googleVerification`, `bingVerification` | empty = tag not added |
 | The words customers see in the WhatsApp chat | `messages` | see below |
 
 **The number must be in international format with no `+` and no leading `0`:**
@@ -49,9 +52,86 @@ Save the file, refresh the page, and every button on the site now uses the new n
 
 ### Changing your prices
 
-Prices are in `index.html` as normal text. Search for `R35`, `R60`, `R45`, `R25` or `R120`
-and replace them. The `From R35/kg` text on the service cards and the `R35` in the pricing
-section are two separate places — update both so they match.
+**Every price on the site comes from one place: the `prices` block in `site-config.js`.**
+Change a number there and the service cards, the pricing table, the FAQ answers and the
+Google schema all update together — you never have to hunt through `index.html`.
+
+```js
+prices: {
+  // Wash services — per kilogram
+  washDryFoldKg: 35,      // wash, dry & fold
+  ironingOnlyKg: 40,      // ironing only
+  washFoldIronKg: 70,     // wash, dry, fold & iron
+
+  // Order
+  minOrder: 150,          // minimum order value
+
+  // Collection & delivery — free from 10kg, otherwise a flat fee
+  deliveryFreeFromKg: 10,
+  deliveryUnderKg: 18,
+
+  // Booking deposit — taken OFF the final bill, not an extra fee
+  bookingDeposit: 50,
+
+  // Duvets        single / double / queen / king / XL
+  duvetSingle: 80, duvetDouble: 100, duvetQueen: 120, duvetKing: 140, duvetXL: 170,
+
+  // Blankets      single / double / queen / king / XL
+  blanketSingle: 120, blanketDouble: 150, blanketQueen: 180, blanketKing: 220, blanketXL: 300,
+
+  // Towels        small/hand / medium / large/bath
+  towelSmall: 25, towelMedium: 35, towelLarge: 50,
+
+  // Rugs & mats
+  rugSmall: 50, rugBathroom: 50, matBath: 50,
+}
+```
+
+Two things worth knowing:
+
+- **Numbers are money.** `washDryFoldKg: 35` renders as `R35`, and thousands are formatted the
+  South African way, so `1450` shows as `R1 450`.
+- **Weights are not money.** `deliveryFreeFromKg: 10` is marked in the HTML with `data-raw`
+  instead of `data-price`, so it renders as `10kg` and never picks up a stray `R`. Keep any new
+  weight-based field on `data-raw` and any rand value on `data-price`.
+
+The special-treatment note is its own field so you can reword it without touching code:
+
+```js
+specialTreatmentNote:
+  "Special treatment may be quoted separately for heavily soiled items, excessive pet hair, ...",
+```
+
+### Changing your address
+
+Also one place — the top of `site-config.js`:
+
+| Field | What to put there |
+|---|---|
+| `street` | Your real street address, or leave it `""` |
+| `city` / `province` / `postalCode` | Used on the site and in the Google schema |
+| `addressFallback` | The line shown when `street` is empty |
+
+Leaving `street` empty is fine and is what a service-area business should do: the footer then
+reads **"Service-area business · Pretoria, Gauteng"** instead of inventing an address. Fill in
+`street` when you have one and the footer, the contact section and the structured data all
+pick it up. **Never put an address you do not actually operate from** — mismatched address
+signals are the most common reason a local business is rejected from Google Maps.
+
+### Fonts and graphics
+
+The site uses the **iOS / SF Pro system font stack**, so it looks native on iPhone, iPad,
+Mac and Windows, and **loads zero font files** (nothing to slow the site down). The palette
+lives in `:root` at the top of `styles.css`.
+
+Graphics are plain SVG files in `assets/`, so they stay sharp on any screen:
+
+| File | Used for |
+|---|---|
+| `assets/hero.svg` | the washing-machine illustration in the hero |
+| `assets/delivery.svg` | the van illustration on the coverage card |
+| `assets/pattern-bubbles.svg` | soft bubble texture behind the hero and the call-to-action |
+| `assets/og-image.svg` → `og-image.png` | the preview image WhatsApp and Facebook show |
 
 ---
 
@@ -135,18 +215,20 @@ It is free and it is what actually brings in customers.
 1. Go to <https://www.google.com/business/> and sign in with a Google account.
 2. Click **Add your business**. Enter `Mohami's Laundry`.
 3. Choose **Service-area business** (no shopfront) if you have no walk-in address.
-4. Category: **Laundry service** (also add *Dry cleaning service* and *Ironing service*).
+4. Category: **Laundry service** (also add *Ironing service*).
 5. Add your **real address or service area** — the suburbs you actually cover.
 6. Add your **phone number** (use the WhatsApp number).
-7. Add **opening hours** matching `site-config.js`.
+7. Add **opening hours** matching `site-config.js`: collection and drop-off
+   `06:30–10:00` and `17:00–20:00`. Google accepts two windows a day — add both.
 8. Upload **photos**. This matters enormously. Take these on your phone:
    - a clean folded pile of laundry
    - your ironing board with pressed shirts
    - your packed collection bag
-   - your folded uniforms
+   - folded duvets and blankets
    - your van or your logo
    - 3–5 real photos of actual jobs you have done
-9. Add your **services and prices** (R35/kg wash & fold, etc.).
+9. Add your **services and prices**: wash, dry & fold R35/kg, wash & iron R70/kg,
+   ironing only R40/kg, duvets and blankets by size, towels from R25, rugs and mats R50.
 10. Verify by postcard or phone. This takes a few days to a few weeks.
 
 Once verified, ask every happy customer for a Google review. Reviews are the number one
